@@ -28,7 +28,7 @@ class SuratkapController extends Controller
 
         return view('kaprodi.suratkap.index', compact('mahasiswas', 'wadir', 'perusahaan', 'surat'));
     }
-
+    //
     public function setuju(Request $request, $id)
     {
         $item = Surat::findOrFail($id);

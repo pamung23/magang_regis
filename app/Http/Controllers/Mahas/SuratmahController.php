@@ -94,12 +94,12 @@ class SuratmahController extends Controller
         if ($request->has('mahasiswa')) {
             $mahasiswa_ids = $request->mahasiswa;
 
-            // // Mengurutkan NIM mahasiswa berdasarkan huruf awalan
-            // usort($mahasiswa_ids, function ($a, $b) {
-            //     $hurufAwalanA = substr($a, 0, 1);
-            //     $hurufAwalanB = substr($b, 0, 1);
-            //     return strcmp($hurufAwalanA, $hurufAwalanB);
-            // });
+            // Mengurutkan NIM mahasiswa berdasarkan huruf awalan
+            usort($mahasiswa_ids, function ($a, $b) {
+                $hurufAwalanA = substr($a, 0, 1);
+                $hurufAwalanB = substr($b, 0, 1);
+                return strcmp($hurufAwalanA, $hurufAwalanB);
+            });
 
             $surat->mahasiswa()->attach($mahasiswa_ids);
         }

@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     public function index()
-    {
+    { //
         $mahasiswa = auth()->guard('mahasiswa')->user();
         $mahasiswaSurat = MahasiswaSurat::where('mahasiswa_id', $mahasiswa->id)->orderByDesc('created_at')->first();
 

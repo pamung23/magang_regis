@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class Home1Controller extends Controller
 {
     public function index()
-    {
+    { //
         $userProdiId = auth()->user()->prodi_id;
 
         $dataProdi = Prodi::withCount('mahasiswa')->where('id', $userProdiId)->get();
