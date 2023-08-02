@@ -43,12 +43,12 @@ class SuratController extends Controller
         $surat = Surat::find($surat);
         $surat->status_surat_akademik = 'Sudah Di Print';
         $surat->save();
-        $tanggalMulai = new DateTime($surat->tanggal_mulai);
-        $tanggalSelesai = new DateTime($surat->tanggal_selesai);
-        $selisihBulan = $tanggalMulai->diff($tanggalSelesai)->m;
+        // $tanggalMulai = new DateTime($surat->tanggal_mulai);
+        // $tanggalSelesai = new DateTime($surat->tanggal_selesai);
+        // $selisihBulan = $tanggalMulai->diff($tanggalSelesai)->m;
         $jumlahMahasiswa = $surat->mahasiswa()->count();
         $tanggalRealtime = now()->format('d M Y');
-        $pdf = PDF::loadView('admin.surat.print', compact('surat', 'prodi', 'mahasiswa', 'wadir', 'perusahaan', 'selisihBulan', 'jumlahMahasiswa', 'tanggalRealtime',))->setPaper('a4');
+        $pdf = PDF::loadView('admin.surat.print', compact('surat', 'prodi', 'mahasiswa', 'wadir', 'perusahaan',  'jumlahMahasiswa', 'tanggalRealtime',))->setPaper('a4');
         return $pdf->stream("Surat - " . "$surat->nama" . ".pdf");
     }
     public function viewPDF($surat)

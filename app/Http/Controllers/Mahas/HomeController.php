@@ -14,15 +14,10 @@ class HomeController extends Controller
     public function index()
     { //
         $mahasiswa = auth()->guard('mahasiswa')->user();
-        $mahasiswaSurat = MahasiswaSurat::where('mahasiswa_id', $mahasiswa->id)->orderByDesc('created_at')->first();
 
-        if ($mahasiswaSurat) {
-            $surat = $mahasiswaSurat->surat;
-            $mahasiswa = $mahasiswaSurat->mahasiswa;
-        } else {
-            $surat = null;
-        }
+        // Ambil data surat terbaru untuk mahasiswa tertentu
+        $suratTerbaru = $mahasiswa->surats->last();
 
-        return view('mahasiswa.home', compact('mahasiswa', 'surat'));
+        return view('mahasiswa.home', compact('mahasiswa', 'suratTerbaru'));
     }
 }

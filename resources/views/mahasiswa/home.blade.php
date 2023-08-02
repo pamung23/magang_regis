@@ -45,16 +45,16 @@
                         <td>{{ $mahasiswa->semester ?? '' }}</td>
                     </tr>
                     <!-- Informasi surat -->
-                    @if($surat)
+                    @if($suratTerbaru)
                     <tr>
                         <th>Status Surat</th>
                         <td>:</td>
                         <td>
-                            @if($surat->status_surat_prodi === 'Di Setujui')
+                            @if($suratTerbaru->status_surat_prodi === 'Di Setujui')
                             <span class="badge badge-success">Approve</span>
-                            @elseif($surat->status_surat_prodi === 'Pending')
+                            @elseif($suratTerbaru->status_surat_prodi === 'Pending')
                             <span class="badge badge-info">Pending</span>
-                            @elseif($surat->status_surat_prodi === 'Di Tolak')
+                            @elseif($suratTerbaru->status_surat_prodi === 'Di Tolak')
                             <span class="badge badge-danger">DI Tolak</span>
                             @endif
                         </td>
@@ -67,14 +67,14 @@
                     </tr>
                     @endif
 
-                    @if($surat)
+                    @if($suratTerbaru)
                     <tr>
                         <th>Print Surat</th>
                         <td>:</td>
                         <td>
-                            @if($surat->status_surat_akademik === 'Sudah Di Print')
+                            @if($suratTerbaru->status_surat_akademik === 'Sudah Di Print')
                             <span class="badge badge-success">Di Print</span>
-                            @elseif($surat->status_surat_akademik === 'Pending')
+                            @elseif($suratTerbaru->status_surat_akademik === 'Pending')
                             <span class="badge badge-info">pending</span>
                             @endif
                         </td>
@@ -87,16 +87,16 @@
                     </tr>
                     @endif
 
-                    @if($surat)
+                    @if($suratTerbaru)
                     <tr>
                         <th>Balasan Perusahaan Perusahaan</th>
                         <td>:</td>
                         <td>
-                            @if($surat->status_surat_akademik2 === 'Di Setujui')
+                            @if($suratTerbaru->status_surat_akademik2 === 'Di Setujui')
                             <span class="badge badge-success">Di Setujuin</span>
-                            @elseif($surat->status_surat_akademik2 === 'belum')
+                            @elseif($suratTerbaru->status_surat_akademik2 === 'belum')
                             <span class="badge badge-info">Belum Ada Balasan Surat</span>
-                            @elseif($surat->status_surat_akademik2 === 'Di Tolak')
+                            @elseif($suratTerbaru->status_surat_akademik2 === 'Di Tolak')
                             <span class="badge badge-danger">DI Tolak</span>
                             @endif
                         </td>

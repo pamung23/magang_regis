@@ -40,8 +40,8 @@
                         <font size="5"><b>POLITEKNIK PERTANIAN NEGERI SAMARINDA </b></font><br>
                         <font size="2"><i>Kampus Gunung Panjang Jl.Samratulangi Samarinda 75131 Telp. 0541-260421,Fax.
                                 0541-260680 <br></font>
-                        <font size="2">email : info@politanisamarinda.ac.id dam
-                            politanismd@gmail.com,www.politanisamarinda.ac.id</i></font>
+                        <font size="2">email : info@politanisamarinda.ac.id dan
+                            politanismd@gmail.com, www.politanisamarinda.ac.id</i></font>
                     </center>
                 </td>
             </tr>
@@ -74,9 +74,17 @@
                 <td>
                 <td>
                 <td>
+                <td>
+                    <td>
+                <td class='text-justify'>
                     <font size="2">Kepada Yth.<br>Pimpinan {{ $surat->perusahaan->nama_perusahaan
                         }}<br>Jl.{{$surat->perusahaan->alamat_perusahaan}}, {{ $surat->perusahaan->kota_kecamatan }}
+                        <br>di-
+                        <br>Tempat
                     </font>
+                </td>
+                </td>
+                </td>
                 </td>
                 </td>
                 </td>
@@ -191,8 +199,8 @@
                 <td>
                 <td>
                 <td class='text-justify'>
-                    <font size="2">Rencana kegiatan Magang Industri (MI) tersebut akan dilaksanakan selama {{
-                        $selisihBulan }} bulan mulai
+                    <font size="2">Rencana kegiatan Magang Industri (MI) tersebut akan dilaksanakan selama
+                        4 Bulan bulan mulai
                         {{$surat->tanggal_mulai}} sd {{$surat->tanggal_selesai}} dengan jumlah mahasiswa {{
                         $jumlahMahasiswa }}
                         orang sebagaimana
@@ -265,7 +273,7 @@
                 <td class="text" align="center"> <br> <br>
                     Samarinda, {{ $tanggalRealtime }}<br> A.n. Direktur
                     <br>{{ $surat->wadir->jabatan }},<br><br><br><br>{{ $surat->wadir->nama }}
-                    {{ $surat->wadir->nip }}
+                    NIP. {{ $surat->wadir->nip }}
                 </td>
             </tr>
         </table>
@@ -330,7 +338,7 @@
         <table>
             <tr class="text2">
                 <td>Lampiran</td>
-                <td width="572"> surat nomor : </td>
+                <td width="572"> surat Nomor : </td>
             </tr>
             <tr class="text2">
                 <td>Tentang</td>
@@ -389,6 +397,7 @@
                     <th class="text-center">Nama</th>
                     <th class="text-center">NIM</th>
                     <th class="text-center">Program Studi</th>
+                    <th class="text-center">Jenjang Studi</th>
                 </tr>
             </thead>
             <tbody>
@@ -425,7 +434,14 @@
                         </ul>
                         @endforeach
                     </td>
+                    <td>@foreach ($surat->mahasiswa as $mahasiswa)
+                        <ul>
 
+                            {{ $mahasiswa->prodi->jenjang }}
+
+                        </ul>
+                        @endforeach
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -436,7 +452,7 @@
                 <td class="text" align="center"> <br> <br>
                     Samarinda, {{ $tanggalRealtime }}<br> A.n. Direktur
                     <br>{{ $surat->wadir->jabatan }},<br><br><br><br>{{ $surat->wadir->nama }}
-                    {{ $surat->wadir->nip }}
+                    NIP. {{ $surat->wadir->nip }}
                 </td>
             </tr>
         </table>
